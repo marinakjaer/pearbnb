@@ -1,2 +1,18 @@
-<h1>Flats#new</h1>
-<p>Find me in app/views/flats/new.html.erb</p>
+<h1>Enter information for new flat</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-offset-sm-4">
+
+    <%= simple_form_for [@flat] do |f|%>
+    <%= f.input :address %>
+    <%= f.input :max_guest %>
+    <%= f.input :price_per_night %>
+    <%= f.input :description %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+    <% end %>
+
+
+    </div>
+  </div>
+</div>
