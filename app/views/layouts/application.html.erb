@@ -8,11 +8,10 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
   </head>
   <body>
     <%= render 'shared/flashes' %>
+    <%= render "shared/navbar" %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
