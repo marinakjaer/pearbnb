@@ -10,7 +10,11 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <% if user_signed_in? %>
     <%= render "shared/navbar-loggedin" %>
+    <% else %>
+    <%= render "shared/navbar-notloggedin" %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
