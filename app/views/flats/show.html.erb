@@ -6,6 +6,8 @@
 <%= link_to "Back to search Results", "/flats/results"%>
 
 <% if current_user == @flat.user %>
-<%= link_to "Update", "/flats/@flat.user_id/update" %>
-<%= link_to "Delete", "/flats/@flat.user_id/delete" %>
+<%= link_to "Edit Flat", "/flats/#{params[:id]}/edit" %>
+<%= link_to "Delete", flat_path(@flat),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
 <% end %>
