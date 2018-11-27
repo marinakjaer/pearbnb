@@ -1,2 +1,22 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h1>Enter information for new flat</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+
+    <%= simple_form_for [@flat, @booking] do |b|%>
+    <%= b.label :check_in %>
+    <%= b.date_field :check_in, value: params[:arrival] %>
+    <%= b.label :check_out %>
+    <%= b.date_field :check_out, value:  params[:departure] %>
+
+
+    <%= b.button :submit, class: 'btn btn-primary' %>
+    <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+<%= link_to "Go back to flat", to: flat_path(@flat) %>
