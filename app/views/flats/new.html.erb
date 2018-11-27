@@ -1,23 +1,5 @@
-<h1>Enter information for new flat</h1>
+<h1 class="text-center">Enter information for new flat</h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-
-    <%= simple_form_for [@flat] do |f|%>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :city %>
-    <%= f.input :max_guest %>
-    <%= f.input :price_per_night %>
-    <%= f.input :description %>
-    <%= f.file_field :photos, multiple: true %>
-    <%= f.button :submit, class: 'btn btn-primary' %>
-    <% end %>
-
-
-    </div>
-  </div>
-</div>
+<%= render "shared/new-flat-form" %>
 
 <%= link_to "Go back to search", to: "" %>
