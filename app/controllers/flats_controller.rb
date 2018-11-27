@@ -1,4 +1,6 @@
 class FlatsController < ApplicationController
+  before_action :set_flat, only: [:show, :edit, :update, :destroy]
+
   def create
     @flat = Flat.new(flat_params)
     @flat.user = current_user
@@ -20,12 +22,25 @@ class FlatsController < ApplicationController
   end
 
   def update
+    @flat = Flat.new(flat_params)
+    @flat.user = current_user
+    if @flat.save
+      redirect_to flat_path(@flat)
+    else
+      render:edit
+    end
   end
 
   def destroy
   end
 
   def results
+  end
+
+  private
+
+  def set_flat
+    @flat = Flat.find(params[:id])
   end
 
   def flat_params
