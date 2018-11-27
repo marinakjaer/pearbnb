@@ -1,5 +1,13 @@
+<form action="/flats/results" method="get">
+  <input type="string" name="city" placeholder=<%=@city == "" ? "City?" : "#{@city}" %>>
+  <input type="integer" name="guests" placeholder=<%=@max_guest == "" ? "#Guests?" : "#{@max_guest}"%>>
+  <label for="arrival">Arrival</label>
+  <input type="date" name="arrival" placeholder="mm/dd/yyyy">
+  <label for="departure">Departure</label>
+  <input type="date" name="departure" placeholder="mm/dd/yyyy"f>
+  <input type="submit">
+</form>
 <h1>Search Results</h1>
-
 <% @flats.each do |f| %>
 <h3><%= f.name %></h3>
 <% end %>

@@ -38,12 +38,16 @@ class FlatsController < ApplicationController
   end
 
   def results
+    @flats = Flat.all
     @city = params[:city]
     @max_guest = params[:guests]
     # Need to later to the bookings vs this
     @check_in = params[:arrival]
     @check_out = params[:departure]
-    @flats = Flat.where(city: @city).where("max_guest > #{@max_guest}")
+
+    @flats = @flats.where(city: @city) unless @city == ""
+    @flats = @flats.where("max_guest > #{@max_guest}") unless @max_guest == ""
+
   end
 
   private
