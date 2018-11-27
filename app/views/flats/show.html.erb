@@ -1,9 +1,9 @@
-<h1><%= @flat.address %></h1>
+<h1><%= @flat.name %></h1>
 <h3><%= @flat.city %></h3>
 <p><%= @flat.description %></p>
+<p><%= @flat.address %></p>
 
 <%= cl_image_tag @flat.photos[0], height: 100, width: 100, crop: :fill %>
-
 
 <br>
 <%= link_to "Back to search Results", "/flats/results"%>
