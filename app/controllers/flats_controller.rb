@@ -42,7 +42,6 @@ class FlatsController < ApplicationController
     @check_in = params[:arrival]
     @check_out = params[:departure]
     @flats = Flat.select { |f| f.city == @city && f.max_guests >= @max_guests}
-
   end
 
   private
@@ -52,6 +51,6 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:description, :address, :max_guest, :price_per_night)
+    params.require(:flat).permit(:description, :address, :max_guest, :price_per_night, :city)
   end
 end
