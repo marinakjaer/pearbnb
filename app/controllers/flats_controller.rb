@@ -26,6 +26,9 @@ class FlatsController < ApplicationController
   end
 
   def results
+    @address = params[:location]
+    @restaurants = RESTAURANTS.select { |id, r| r[:category] == @category }
+
   end
 
   def flat_params
