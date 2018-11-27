@@ -5,6 +5,8 @@
 <%= cl_image_tag @flat.photos[0], height: 100, width: 100, crop: :fill %>
 <%= cl_image_tag @flat.photos[1], height: 100, width: 100, crop: :fill %>
 
+<a class='btn btn-primary' href="/flats/<%="#{@flat.id}"%>/bookings/new?arrival=<%="#{params[:arrival]}"%>&departure=<%="#{params[:departure]}"%>" role='button'>Book Now!</a>
+
 <br>
 <%= link_to "Back to search Results", "/flats/results"%>
 <br>
