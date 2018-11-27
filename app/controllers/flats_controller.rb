@@ -32,6 +32,7 @@ class FlatsController < ApplicationController
   end
 
   def destroy
+    @flat.destroy
   end
 
   def results
