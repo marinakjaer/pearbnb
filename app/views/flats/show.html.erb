@@ -1,3 +1,13 @@
 <h1><%= @flat.address %></h1>
+<h3><%= @flat.city %></h3>
+<p><%= @flat.description %></p>
 
 
+<%= link_to "Back to search Results", "/flats/results"%>
+
+<% if current_user == @flat.user %>
+<%= link_to "Edit Flat", "/flats/#{params[:id]}/edit" %>
+<%= link_to "Delete", flat_path(@flat),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<% end %>
