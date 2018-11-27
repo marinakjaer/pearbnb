@@ -6,6 +6,7 @@
 
     <%= simple_form_for [@flat] do |f|%>
     <%= f.input :address %>
+    <%= f.input :city %>
     <%= f.input :max_guest %>
     <%= f.input :price_per_night %>
     <%= f.input :description %>
@@ -16,3 +17,5 @@
     </div>
   </div>
 </div>
+
+<%= link_to "Go back to search", to: "" %>
