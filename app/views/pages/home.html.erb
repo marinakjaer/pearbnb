@@ -2,15 +2,7 @@
   <div class="banner-content">
     <h1>Eat pears</h1>
     <p>(in someone elses house)</p>
-    <form action="/flats/results" method="get">
-      <input type="string" name="city" placeholder="What city?">
-      <input type="integer" name="guests" placeholder="How many are you?">
-      <label for="arrival">Arrival</label>
-      <input class="date" type="date" name="arrival">
-      <label for="departure">Departure</label>
-      <input class ="date" type="date" name="departure">
-      <input type="submit">
-    </form>
+    <%= render "shared/home-form" %>
   </div>
 </div>
 <!--
