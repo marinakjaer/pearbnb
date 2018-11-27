@@ -1,2 +1,18 @@
-<h1>Flats#show</h1>
-<p>Find me in app/views/flats/show.html.erb</p>
+<h1><%= @flat.address %></h1>
+<h3><%= @flat.city %></h3>
+<p><%= @flat.description %></p>
+
+<%= cl_image_tag @flat.photos[0], height: 100, width: 100, crop: :fill %>
+<%= cl_image_tag @flat.photos[1], height: 100, width: 100, crop: :fill %>
+
+<br>
+<%= link_to "Back to search Results", "/flats/results"%>
+<br>
+
+<% if current_user == @flat.user %>
+<%= link_to "Edit Flat", "/flats/#{params[:id]}/edit" %>
+<br>
+<%= link_to "Delete Flat", flat_path(@flat),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<% end %>

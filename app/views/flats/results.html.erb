@@ -1,2 +1,20 @@
-<h1>Flats#results</h1>
-<p>Find me in app/views/flats/results.html.erb</p>
+<form action="/flats/results" method="get">
+  <input type="string" name="city" placeholder="City?" value=<%="#{@city}"%>>
+  <input type="integer" name="guests" placeholder="#Guests?" value=<%="#{@max_guest}"%>>
+  <label for="arrival">Arrival</label>
+  <input type="date" name="arrival" value=<%="#{@check_in}"%>>
+  <label for="departure">Departure</label>
+  <input type="date" name="departure" value=<%="#{@check_out}"%>>
+  <input type="submit">
+</form>
+
+
+<h1>Search Results</h1>
+<% @flats.each do |f| %>
+
+ <h3><%= f.name %></h3>
+ <a class='btn btn-primary' href="/flats/<%="#{f.id}"%>/bookings/new?arrival=<%="#{@check_in}"%>&departure=<%="#{@check_out}"%>" role='button'>Book Now!</a>
+
+ <a class=btn btn-info' href="/flat/<%="#{f.id}"%>">Learn More</a>
+<% end %>
+
