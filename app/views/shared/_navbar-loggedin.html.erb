@@ -6,11 +6,8 @@
 
   <!-- Right Navigation -->
   <div class="navbar-socksup-right hidden-xs hidden-sm">
-
-    <a href="" class="navbar-socksup-item navbar-socksup-link">Become a Host</a>
-    <a href="" class="navbar-socksup-item navbar-socksup-link">Saved</a>
-    <a href="" class="navbar-socksup-item navbar-socksup-link">Trips</a>
-    <a href="" class="navbar-socksup-item navbar-socksup-link">Messages</a>
+    <%= link_to "Become a Host", new_flat_path, class: "navbar-socksup-item navbar-socksup-link" %>
+    <%= link_to "Profile", profile_path(current_user), class: "navbar-socksup-item navbar-socksup-link" %>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-socksup-item">
@@ -28,11 +25,8 @@
     <div class="dropdown">
       <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-socksup-dropdown-menu">
-        <li><a href="#">Become a Host</a></li>
-        <li><a href="#">Trips</a></li>
-        <li><a href="#">Messages</a></li>
-        <li><a href="#">Edit Profile</a></li>
-        <li><a href="#">Account Setting</a></li>
+        <li><%= link_to "Become a Host", new_flat_path %></li>
+        <li><%= link_to "Profile", profile_path(current_user) %></li>
         <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
       </ul>
     </div>
