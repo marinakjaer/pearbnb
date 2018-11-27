@@ -1,21 +1,32 @@
-<div class="flat-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/montreal');">
+<div class="container">
+  <div class="flat-photo" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= @flat.photos[0] %>');">
   </div>
 
-<h1><%= @flat.address %></h1>
-<h3><%= @flat.city %></h3>
-<p><%= @flat.description %></p>
 
-<%= cl_image_tag @flat.photos[0], height: 100, width: 100, crop: :fill %>
-<%= cl_image_tag @flat.photos[1], height: 100, width: 100, crop: :fill %>
 
-<br>
-<%= link_to "Back to search Results", "/flats/results"%>
-<br>
+  <div class="flat-content">
+    <h1><%= @flat.name %></h1>
+    <h3><%= @flat.address %></h3>
+    <h3><%= @flat.city %></h3>
+    <ul class="list-inline">
+      <li><p><i class="fas fa-users"></i> <%= @flat.max_guest %> guests</p></li>
+      <li><p><i class="fas fa-euro-sign"></i> <%= @flat.price_per_night %> per night</p></li>
+    </ul>
+    <p><%= @flat.description %></p>
+  </div>
 
-<% if current_user == @flat.user %>
-<%= link_to "Edit Flat", "/flats/#{params[:id]}/edit" %>
-<br>
-<%= link_to "Delete Flat", flat_path(@flat),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
-<% end %>
+
+  <br>
+  <%= link_to "Back to search Results", "/flats/results"%>
+  <br>
+
+  <% if current_user == @flat.user %>
+  <%= link_to "Edit Flat", "/flats/#{params[:id]}/edit" %>
+  <br>
+  <%= link_to "Delete Flat", flat_path(@flat),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+  <% end %>
+</div>
+
+<!--  <%= cl_image_tag @flat.photos[0], height: 496, width: 745, crop: :fill %> -->
