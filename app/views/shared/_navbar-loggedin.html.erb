@@ -17,7 +17,7 @@
       <div class="dropdown">
         <img src="https://source.unsplash.com/user/erondu" class="avatar dropdown-toggle" id="navbar-socksup-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-socksup-dropdown-menu">
-          <li><a href="#">Log Out</a></li>
+          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
         </ul>
       </div>
     </div>
@@ -33,7 +33,7 @@
         <li><a href="#">Messages</a></li>
         <li><a href="#">Edit Profile</a></li>
         <li><a href="#">Account Setting</a></li>
-        <li><a href="#">Log Out</a></li>
+        <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
       </ul>
     </div>
   </div>
