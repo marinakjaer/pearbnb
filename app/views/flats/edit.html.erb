@@ -9,6 +9,7 @@
     <%= f.input :max_guest %>
     <%= f.input :price_per_night %>
     <%= f.input :description %>
+    <%= f.file_field :photos, multiple: true %>
     <%= f.button :submit, class: 'btn btn-primary' %>
     <% end %>
     </div>
