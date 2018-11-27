@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Eat pears</h1>
+<h3>(in someone elses house)</h3>
+
+<form action="/flats/results" method="get">
+  <input type="string" name="city" placeholder="What city?">
+  <input type="integer" name="guests" placeholder="How many are you?">
+  <label for="arrival">Arrival</label>
+  <input type="date" name="arrival" placeholder="mm/dd/yyyy">
+  <label for="departure">Departure</label>
+  <input type="date" name="departure" placeholder="mm/dd/yyyy"f>
+  <input type="submit">
+</form>
+

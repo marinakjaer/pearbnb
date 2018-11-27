@@ -26,6 +26,14 @@ class FlatsController < ApplicationController
   end
 
   def results
+    @city = params[:city]
+    @max_guests = params[:guests]
+
+    # Need to later to the bookings vs this
+    @check_in = params[:arrival]
+    @check_out = params[:departure]
+    @flats = Flat.select { |f| f.city == @city && f.max_guests >= @max_guests}
+
   end
 
   def flat_params
