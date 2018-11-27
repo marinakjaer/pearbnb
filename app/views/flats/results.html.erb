@@ -1,2 +1,5 @@
-<h1>Flats#results</h1>
-<p>Find me in app/views/flats/results.html.erb</p>
+<h1>Search Results</h1>
+
+<% @flats.each do |f| %>
+<h3><%= f.name %></h3>
+<% end %>
