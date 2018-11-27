@@ -19,6 +19,8 @@ class FlatsController < ApplicationController
   end
 
   def show
+
+
   end
 
   def update
@@ -57,6 +59,6 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:description, :name, :address, :max_guest, :price_per_night, :city)
+    params.require(:flat).permit(:description, :name, :address, :max_guest, :price_per_night, :city, photos: [])
   end
 end
