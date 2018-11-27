@@ -7,7 +7,14 @@
   <input type="date" name="departure" placeholder="mm/dd/yyyy"f>
   <input type="submit">
 </form>
+
+
 <h1>Search Results</h1>
 <% @flats.each do |f| %>
-<h3><%= f.name %></h3>
+
+ <h3><%= f.name %></h3>
+ <a class='btn btn-primary' href="/flats/<%="#{f.id}"%>/bookings/new?arrival=<%="#{@check_in}"%>&departure=<%="#{@check_out}"%>" role='button'>Book Now!</a>
+
+ <a class=btn btn-info' href="/flat/<%="#{f.id}"%>">Learn More</a>
 <% end %>
+
