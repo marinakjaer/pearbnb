@@ -16,20 +16,8 @@
           </div>
           <p><%= @flat.description %></p>
       </div>
-      <div class="sticky-form">
-        <div class="form-style">
-          <div class="price"></div>
-          <strong><p class="flat-price-on-form"><i class="fas fa-euro-sign"></i> <%= @flat.price_per_night %>/night</p></strong>
-          <hr class="styling-hr">
-           <a class='btn btn-primary centered-btn' href="/flats/<%="#{@flat.id}"%>/bookings/new?arrival=<%="#{params[:arrival]}"%>&departure=<%="#{params[:departure]}"%>" role='button'>Go to Booking</a>
-        </div>
-      </div>
+           <a class='btn btn-primary centered-btn go-to-booking' href="/flats/<%="#{@flat.id}"%>/bookings/new?arrival=<%="#{params[:arrival]}"%>&departure=<%="#{params[:departure]}"%>" role='button'>Go to Booking</a>
     </div>
-
-
-
-
-
 
   </div>
     <br>

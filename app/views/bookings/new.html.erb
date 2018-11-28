@@ -24,10 +24,10 @@
   <strong><p class="flat-price-on-form"><i class="fas fa-euro-sign"></i> <%= @flat.price_per_night %> per night</p></strong>
   <hr class="styling-hr">
   <%= simple_form_for [@flat, @booking] do |b|%>
-   <div class="home-form-dates">
-      <div class="home-form-arrival"><%= b.label :check_in %>
+   <div class="show-form-dates">
+      <div class="show-form-arrival"><%= b.label :check_in %>
       <%= b.date_field :check_in, value: params[:arrival] %></div>
-      <div class="home-form-arrival"><%= b.label :check_out %>
+      <div class="show-form-arrival"><%= b.label :check_out %>
       <%= b.date_field :check_out, value:  params[:departure] %></div>
     </div>
       <div style> <%= b.button :submit, class: 'btn btn-primary' %> </div>
