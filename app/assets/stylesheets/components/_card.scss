@@ -1,8 +1,10 @@
-.card {
+.card-content {
  border: 1px solid #d3d3d3;
- border-radius: .25rem;
+ border-radius: 10px;
  width: 320px;
  background-color: white;
+ box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+ margin: 10px
 }
 .bg-img {
  background-size: cover;
@@ -11,7 +13,6 @@
  background-position: center;
  background-color: #ccc;
 }
-
 
 .city-name {
   font-weight: lighter;
@@ -28,10 +29,48 @@
 
 ul {
   list-style: none;
+  margin-bottom: 0;
 }
 
 p.city-name {
   margin: 0;
+}
+
+.content {
+  position: relative;
+  margin: 15px;
+  min-height: 100px;
+}
+.card-info {
+  width: 100%;
+  color: rgba(0,0,0,0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  a{
+    text-decoration: none;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.card-icons {
+  color: rgba(0,0,0,0.6);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-top: 5px;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.card-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
 }
 
 .main-container {
