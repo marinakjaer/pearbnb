@@ -1,31 +1,32 @@
+<form action="/flats/results" method="get">
+  <input type="string" name="city" placeholder="City?" value=<%="#{@city}"%>>
+  <input type="integer" name="guests" placeholder="#Guests?" value=<%="#{@max_guest}"%>>
+  <label for="arrival">Arrival</label>
+  <input type="date" name="arrival" value=<%="#{@check_in}"%>>
+  <label for="departure">Departure</label>
+  <input type="date" name="departure" value=<%="#{@check_out}"%>>
+  <input type="submit">
+</form>
 
-    <form action="/flats/results" method="get">
-      <input type="string" name="city" placeholder="City?" value=<%="#{@city}"%>>
-      <input type="integer" name="guests" placeholder="#Guests?" value=<%="#{@max_guest}"%>>
-      <label for="arrival">Arrival</label>
-      <input type="date" name="arrival" value=<%="#{@check_in}"%>>
-      <label for="departure">Departure</label>
-      <input type="date" name="departure" value=<%="#{@check_out}"%>>
-      <input type="submit">
-    </form>
 
-
-    <h1>Search Results</h1>
-    <% @flats.each do |f| %>
-    <div class="col-xs-3">
-      <div class="bg-img" style="background-image: url('<%= f.photos[0] %>');"></div>
-      <div class="content">
-        <p class= "city-name"><%= f.city %></p>
-        <h3><%= f.name %></h3>
-        <ul class="list-inline">
-          <li><p><i class="fas fa-euro-sign"></i><%= f.price_per_night %>Per night</p>
-          </li>
-          <li><p><i class="fas fa-users"></i><%= f.max_guest %></p>
-          </li>
-        </ul>
-        <a class='btn btn-primary' href="/flats/<%="#{f.id}"%>/bookings/new?arrival=<%="#{@check_in}"%>&departure=<%="#{@check_out}"%>" role='button'>Book Now!</a>
-         <a class=btn btn-info' href="/flats/<%="#{f.id}"%>?arrival=<%="#{@check_in}"%>&departure=<%="#{@check_out}"%>">Learn More</a>
-      </div>
-    </div>
+<h1>Search Results</h1>
+<% @flats.each do |f| %>
+<div class="col-xs-3">
+  <%= link_to flat_path(f) do %>
+  <div class="bg-img" style="background-image: url('<%= f.photos[0] %>');"></div>
+  <div class="content">
+    <p class= "city-name"><%= f.city %></p>
+    <h3><%= f.name %></h3>
+    <ul class="list-inline">
+      <li><p><i class="fas fa-euro-sign"></i><%= f.price_per_night %>Per night</p>
+      </li>
+      <li><p><i class="fas fa-users"></i><%= f.max_guest %></p>
+      </li>
+    </ul>
+    <a class='btn btn-primary' href="/flats/<%="#{f.id}"%>/bookings/new?arrival=<%="#{@check_in}"%>&departure=<%="#{@check_out}"%>" role='button'>Book Now!</a>
   </div>
   <% end %>
+</div>
+</div>
+<% end %>
+
