@@ -22,18 +22,18 @@
       <div class="price"></div>
       <strong><p class="flat-price-on-form"><i class="fas fa-euro-sign"></i> <%= @flat.price_per_night %> per night</p></strong>
       <hr class="styling-hr">
-    <div class="home-form-dates">
+    <div>
 
 
-        <div class="home-form-arrival">
+
           <label for="arrival">Dates</label> <br>
           <input class="date" type="date" name="arrival">
-        </div>
 
-        <div class="home-form-departure">
+
+
           <label for="departure"></label> <br>
           <input class ="date" type="date" name="departure">
-        </div>
+
         <hr class="styling-hr">
          <a class='btn btn-primary centered-btn' href="/flats/<%="#{@flat.id}"%>/bookings/new?arrival=<%="#{params[:arrival]}"%>&departure=<%="#{params[:departure]}"%>" role='button'>Book Now!</a>
       </form>
