@@ -19,10 +19,12 @@
       </div>
     </div>
     <div class="col-lg-6 col-md-4 col-sm-12">
-      <h2>My profile</h2>
+      <div class="profile-info">
+        <h2>My profile</h2>
+        <p><%= "I created my account in : #{@user.created_at.to_date}" %></p>
+        <h3 id="previous-booking"><%= "Previous Bookings: #{@user.bookings.count}" %></h3>
+      </div>
       <!-- <span>User address</span> -->
-      <p><%= "I created my account in : #{@user.created_at.to_date}" %></p>
-      <h3 id="previous-booking"><%= "Previous Bookings: #{@user.bookings.count}" %></h3>
     </div>
     <!-- <div class="col-lg-3 col-md-4 col-sm-12">
       <button class="edit-profile-button"><%#= link_to "Edit your profile", "#"  %></button>
