@@ -1,16 +1,3 @@
-<div class="container">
-  <%= cl_image_tag @flat.photos[0], height: 100, width: 100, crop: :fill %>
-
-  <div class="flat-content">
-      <h1><%= @flat.name %></h1>
-      <h3><%= @flat.address %></h3>
-      <h3><%= @flat.city %></h3>
-      <ul class="list-inline">
-        <li><p><i class="fas fa-users"></i> <%= @flat.max_guest %> guests</p></li>
-        <li><p><i class="fas fa-euro-sign"></i> <%= @flat.price_per_night %> per night</p></li>
-      </ul>
-      <p><%= @flat.description %></p>
-    </div>
 
   <a class='btn btn-primary' href="/flats/<%="#{@flat.id}"%>/bookings/new?arrival=<%="#{params[:arrival]}"%>&departure=<%="#{params[:departure]}"%>" role='button'>Book Now!</a>
 

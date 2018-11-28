@@ -11,8 +11,11 @@
  background-position: center;
  background-color: #ccc;
 }
+
 .content {
- padding: 15px;
+  h3 {
+    margin-top: 0;
+  }
 }
 
 .city-name {

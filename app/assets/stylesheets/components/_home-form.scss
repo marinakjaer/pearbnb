@@ -1,0 +1,38 @@
+input[type="string"] {
+  height: 35px;
+  width: 300px;
+  margin: 15px 3px;
+  border-radius: 5px;
+  border-style: none;
+}
+
+.form-group .col-xs-6 {
+  text-align: center;
+}
+
+input[type="integer"] {
+  height: 35px;
+  width: 300px;
+  margin: 15px 3px;
+  border-radius: 5px;
+  border-style: none;
+}
+
+input[type="date"] {
+  width: 300px;
+  margin: 0px 3px;
+  border-radius: 5px;
+  border-style: none;
+}
+
+.home-form-button {
+  width: 300px;
+  border-radius: 5px;
+  border-style: none;
+
+}
+
+.side-by-side-form{
+  display:flex;
+  text-align: center;
+}

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # resources :users, except: [:index]
 
   devise_for :users
+  get 'users/:id', to: 'users#profile', as: :profile
 
 
 end

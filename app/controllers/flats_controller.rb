@@ -1,5 +1,6 @@
 class FlatsController < ApplicationController
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:results, :show]
 
   def create
     @flat = Flat.new(flat_params)
@@ -48,7 +49,7 @@ class FlatsController < ApplicationController
     @check_out = params[:departure]
 
     @flats = @flats.where(city: @city) unless @city == ""
-    @flats = @flats.where("max_guest > #{@max_guest}") unless @max_guest == ""
+    @flats = @flats.where("max_guest >= #{@max_guest}") unless @max_guest == ""
 
   end
 
