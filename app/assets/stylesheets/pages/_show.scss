@@ -53,10 +53,6 @@
   left: 47px;
 }
 
-.sticky-form {
-  position: sticky;
-  top: 0;
-}
 
 .host-buttons {
   position: absolute;
@@ -67,4 +63,10 @@
 .search-button {
   position: relative;
   bottom: 12px;
+  padding: 10px;
+  left: 10px;
+}
+
+.go-to-booking {
+  height: 40px;
 }
