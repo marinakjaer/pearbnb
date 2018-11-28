@@ -1,9 +1,9 @@
 .parallax {
   height: 60%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container {
@@ -21,30 +21,33 @@
 .user-verified-infos {
   margin-top: 100px;
   h2 {
-  margin-top: 0;
-  margin-left: 10%
-}
+    margin-top: 0;
+    margin-left: 10%
+  }
   .p-infos {
     margin-bottom: 10px;
   }
 }
 
-h2 {
-  margin-left: 10%;
-  font-weight: bold;
-  font-size: 40px;
-  margin-top: 0
-}
+
 
 #verified-infos {
   font-size: 30px;
   text-align: center;
 }
 
-p {
-  margin-right: 50%;
-  margin-left: 10%;
-  margin-top: 31px;
+.profile-info {
+  p {
+    margin-right: 50%;
+    margin-left: 10%;
+    margin-top: 31px;
+  }
+  h2 {
+    margin-left: 10%;
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 0
+  }
 }
 
 #previous-booking {
