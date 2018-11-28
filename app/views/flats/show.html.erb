@@ -17,27 +17,12 @@
           <p><%= @flat.description %></p>
       </div>
       <div class="sticky-form">
-      <div class="form-style">
-    <form action="/flats/results" method="get">
-      <div class="price"></div>
-      <strong><p class="flat-price-on-form"><i class="fas fa-euro-sign"></i> <%= @flat.price_per_night %> per night</p></strong>
-      <hr class="styling-hr">
-    <div>
-
-
-
-          <label for="arrival">Dates</label> <br>
-          <input class="date" type="date" name="arrival">
-
-
-
-          <label for="departure"></label> <br>
-          <input class ="date" type="date" name="departure">
-
-        <hr class="styling-hr">
-         <a class='btn btn-primary centered-btn' href="/flats/<%="#{@flat.id}"%>/bookings/new?arrival=<%="#{params[:arrival]}"%>&departure=<%="#{params[:departure]}"%>" role='button'>Book Now!</a>
-      </form>
-      </div>
+        <div class="form-style">
+          <div class="price"></div>
+          <strong><p class="flat-price-on-form"><i class="fas fa-euro-sign"></i> <%= @flat.price_per_night %>/night</p></strong>
+          <hr class="styling-hr">
+           <a class='btn btn-primary centered-btn' href="/flats/<%="#{@flat.id}"%>/bookings/new?arrival=<%="#{params[:arrival]}"%>&departure=<%="#{params[:departure]}"%>" role='button'>Go to Booking</a>
+        </div>
       </div>
     </div>
 
