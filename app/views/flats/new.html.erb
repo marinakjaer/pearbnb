@@ -2,4 +2,4 @@
 
 <%= render "shared/new-flat-form" %>
 
-<%= link_to "Go back to search", to: "" %>
+<%= link_to "Go back to search", to: "flats/results?arrival=#{params[:arrival]}&departure=#{params[:departure]}" %>

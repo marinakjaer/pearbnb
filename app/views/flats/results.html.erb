@@ -1,13 +1,14 @@
+<form action="/flats/results" method="get">
+  <input type="string" name="city" placeholder="City?" value=<%="#{@city}"%>>
+  <input type="integer" name="guests" placeholder="#Guests?" value=<%="#{@max_guest}"%>>
+  <label for="arrival">Arrival</label>
+  <input type="date" name="arrival" value=<%="#{@check_in}"%>>
+  <label for="departure">Departure</label>
+  <input type="date" name="departure" value=<%="#{@check_out}"%>>
+  <input type="submit">
+</form>
 
-    <form action="/flats/results" method="get">
-      <input type="string" name="city" placeholder="City?" value=<%="#{@city}"%>>
-      <input type="integer" name="guests" placeholder="#Guests?" value=<%="#{@max_guest}"%>>
-      <label for="arrival">Arrival</label>
-      <input type="date" name="arrival" value=<%="#{@check_in}"%>>
-      <label for="departure">Departure</label>
-      <input type="date" name="departure" value=<%="#{@check_out}"%>>
-      <input type="submit">
-    </form>
+
 
 
     <h1>Search Results</h1>
