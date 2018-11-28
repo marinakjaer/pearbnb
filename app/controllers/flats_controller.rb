@@ -47,8 +47,8 @@ class FlatsController < ApplicationController
     @check_in = params[:arrival]
     @check_out = params[:departure]
 
-    @flats = @flats.where(city: @city) unless @city == ""
-    @flats = @flats.where("max_guest > #{@max_guest}") unless @max_guest == ""
+    @flats = @flats.where(city: @city) unless @city == "" || @city == nil
+    @flats = @flats.where("max_guest > #{@max_guest}") unless @max_guest == "" || @max_guest == nil
 
   end
 
