@@ -4,10 +4,10 @@
 
 
 .flat-photo {
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-   width: 50%;
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ width: 50%;
 }
 .flat-content {
   width: 100%;
@@ -23,36 +23,30 @@
 
 .form-style {
 
-    text-align: center;
+  text-align: center;
+  position: relative;
+  bottom: 108px;
+  left: 65px;
+  background-color: white;
+  height: 320px;
+  border-radius: 2px;
+
+  .simple_form .new_booking {
+
+
+  }
+  .show-form-arrival input {
+    width: 270px;
+    margin: 0px 3px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #F4F4F4;
+    box-align: center;
     position: relative;
-    bottom: 108px;
-    left: 65px;
-    background-color: white;
-    height: 320px;
-    border-radius: 2px;
-
-
-  input[type="date"] {
-      width: 270px;
-      margin: 0px 3px;
-      border-radius: 5px;
-      border-style: none;
-      background-color: #F4F4F4;
-      box-align: center;
-      position: relative;
-      right: 24px;
-}
+  }
 }
 
-.flat-price-on-form {
-  position: relative;
-  top: 12px;
-}
 
-.form-style hr {
-  position: relative;
-  right: 26px;
-}
 
 .centered-btn {
   position: relative;
