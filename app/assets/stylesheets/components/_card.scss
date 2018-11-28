@@ -12,11 +12,6 @@
  background-color: #ccc;
 }
 
-.content {
-  h3 {
-    margin-top: 0;
-  }
-}
 
 .city-name {
   font-weight: lighter;
@@ -35,3 +30,17 @@ ul {
   list-style: none;
 }
 
+p.city-name {
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+}
+
+#map {
+  flex: 0 0 400px;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+}
