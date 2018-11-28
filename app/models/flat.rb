@@ -10,6 +10,7 @@ class Flat < ApplicationRecord
   validates :price_per_night, presence: true
   validates :name, presence: true
   validates :name, uniqueness: true
+  validates :max_guest, presence: true
 
   geocoded_by :full_address
   after_validation :geocode, if: :will_save_change_to_address?
