@@ -1,11 +1,54 @@
-<h1>Enter information for new flat</h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-      <%= render 'form' %>
+
+<div class="page-container">
+  <%= cl_image_tag @flat.photos[0], crop: :fill, class:"flat-picture" %>
+    <div class="container">
+      <div class="flat">
+      <div class="flat-content">
+        <h1><%= @flat.name %></h1>
+        <h3><%= @flat.address %></h3>
+        <h3><%= @flat.city %></h3>
+        <ul class="list-inline">
+          <li><p><i class="fas fa-users"></i> <%= @flat.max_guest %> guests</p></li>
+          <li><p><i class="fas fa-euro-sign"></i> <%= @flat.price_per_night %> per night</p></li>
+        </ul>
+        <div class="flat-description">
+          </div>
+          <p><%= @flat.description %></p>
+      </div>
+      <div class="form-style">
+
+
+
+  <div class="price"></div>
+  <strong><p class="flat-price-on-form"><i class="fas fa-euro-sign"></i> <%= @flat.price_per_night %> per night</p></strong>
+  <hr class="styling-hr">
+  <%= simple_form_for [@flat, @booking] do |b|%>
+   <div class="home-form-dates">
+      <div class="home-form-arrival"><%= b.label :check_in %>
+      <%= b.date_field :check_in, value: params[:arrival] %></div>
+      <div class="home-form-arrival"><%= b.label :check_out %>
+      <%= b.date_field :check_out, value:  params[:departure] %></div>
+    </div>
+    <hr class="styling-hr">
+      <div style> <%= b.button :submit, class: 'btn btn-primary' %> </div>
+      <% end %>
     </div>
   </div>
-</div>
 
-<%= link_to "Go back to flat", to: flat_path(@flat) %>
+    <br>
+  <%= link_to "Back to search Results", "/flats/results", class: "btn btn-primary search-button"%>
+  <br>
+      <div class="host-buttons">
+        <ul class="list-inline">
+          <li><% if current_user == @flat.user %>
+      <%= link_to "Edit Flat", "/flats/#{params[:id]}/edit", class: "btn btn-primary" %></li>
+          <li><%= link_to "Delete Flat", flat_path(@flat),
+            method: :delete,
+            data: { confirm: "Are you sure?" }, class: "btn btn-primary" %></li>
+         <br>
+        </ul>
+      </div>
+  <% end %>
+  </div>
+</div>
