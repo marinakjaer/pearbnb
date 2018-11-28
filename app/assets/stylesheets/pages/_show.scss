@@ -22,7 +22,6 @@
 }
 
 .form-style {
-
   text-align: center;
   position: relative;
   bottom: 108px;
@@ -30,10 +29,8 @@
   background-color: white;
   height: 320px;
   border-radius: 2px;
-
-  .simple_form .new_booking {
-
-
+  .price {
+    margin: 20px auto;
   }
   .show-form-arrival input {
     width: 270px;
@@ -43,6 +40,9 @@
     background-color: #F4F4F4;
     box-align: center;
     position: relative;
+  }
+  .show-form-dates {
+    margin: 30px auto;
   }
 }
 
