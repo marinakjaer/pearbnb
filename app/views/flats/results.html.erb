@@ -12,28 +12,34 @@
 <h1>Search Results</h1>
 <% @flats.each do |f| %>
 <div class="col-xs-3">
-  <%= link_to flat_path(f) do %>
-  <div class="bg-img" style="background-image: url('<%= f.photos[0] %>');"></div>
-  <div class="content">
-    <p class= "city-name"><%= f.city %></p>
-    <h3><%= f.name %></h3>
-    <ul class="list-inline">
-      <li><p><i class="fas fa-euro-sign"></i><%= f.price_per_night %>Per night</p>
-      </li>
-      <li><p><i class="fas fa-users"></i><%= f.max_guest %></p>
-      </li>
-    </ul>
-    <a class='btn btn-primary' href="/flats/<%="#{f.id}"%>/bookings/new?arrival=<%="#{@check_in}"%>&departure=<%="#{@check_out}"%>" role='button'>Book Now!</a>
+  <div class="card">
+    <%= link_to flat_path(f) do %>
+    <div class="bg-img" style="background-image: url('<%= f.photos[0] %>');"></div>
+    <div class="content">
+      <div>
+        <p class= "city-name"><%= f.city %></p>
+        <h3><%= f.name %></h3>
+        <ul class="list-inline">
+          <li><p><i class="fas fa-euro-sign"></i><%= f.price_per_night %>Per night</p>
+          </li>
+          <li><p><i class="fas fa-users"></i><%= f.max_guest %></p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <a class='btn btn-primary' href="/flats/<%="#{f.id}"%>/bookings/new?arrival=<%="#{@check_in}"%>&departure=<%="#{@check_out}"%>" role='button'>Book Now!</a>
+      </div>
+    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
+  </div>
 </div>
 <% end %>
 
 <div
   id="map"
   style="width: 100%;
-  height: 600px;"
+  height: 400px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
