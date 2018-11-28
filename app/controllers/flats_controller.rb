@@ -2,6 +2,10 @@ class FlatsController < ApplicationController
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:results, :show]
 
+  def index
+
+  end
+
   def create
     @flat = Flat.new(flat_params)
     @flat.user = current_user
@@ -41,7 +45,7 @@ class FlatsController < ApplicationController
   end
 
   def results
-    @flats = Flat.all
+    @flats = Flat.where.not(latitude: nil, longitude: nil)
     @city = params[:city]
     @max_guest = params[:guests]
     # Need to later to the bookings vs this
@@ -51,6 +55,12 @@ class FlatsController < ApplicationController
     @flats = @flats.where(city: @city) unless @city == "" || @city == nil
     @flats = @flats.where("max_guest > #{@max_guest}") unless @max_guest == "" || @max_guest == nil
 
+    @markers = @flats.map do |flat|
+      {
+        lng: flat.longitude,
+        lat: flat.latitude
+      }
+    end
   end
 
   private
