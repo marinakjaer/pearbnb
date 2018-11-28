@@ -8,7 +8,6 @@
   <input type="submit">
 </form>
 
-
 <h1>Search Results</h1>
 <% @flats.each do |f| %>
 <div class="col-xs-3">
@@ -43,3 +42,10 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+        <a class='btn btn-primary' href="/flats/<%="#{f.id}"%>/bookings/new?arrival=<%="#{@check_in}"%>&departure=<%="#{@check_out}"%>" role='button'>Book Now!</a>
+         <a class=btn btn-info' href="/flats/<%="#{f.id}"%>?arrival=<%="#{@check_in}"%>&departure=<%="#{@check_out}"%>">Learn More</a>
+
+      </div>
+    </div>
+  </div>
+  <% end %>
