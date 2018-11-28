@@ -29,17 +29,18 @@
     background-color: white;
     height: 320px;
     border-radius: 2px;
-}
 
-input[type="date"] {
-    width: 270px;
-    margin: 0px 3px;
-    border-radius: 5px;
-    border-style: none;
-    background-color: #F4F4F4;
-    box-align: center;
-    position: relative;
-    right: 24px;
+
+  input[type="date"] {
+      width: 270px;
+      margin: 0px 3px;
+      border-radius: 5px;
+      border-style: none;
+      background-color: #F4F4F4;
+      box-align: center;
+      position: relative;
+      right: 24px;
+}
 }
 
 .flat-price-on-form {
