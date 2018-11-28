@@ -7,7 +7,6 @@
   <input type="date" name="departure" value=<%="#{@check_out}"%>>
   <input type="submit">
 </form>
-  <h1>Search Results</h1>
 <div class="main-container">
   <div class="container">
     <div class="row">
@@ -19,14 +18,13 @@
             <div class="content">
               <div class="card-info">
                 <p class= "city-name"><%= f.city %></p>
-                <h3><%= f.name %></h3>
+                <p><%= f.name %></h3>
               </div>
               <div class="card-icons">
                 <ul class="list-inline">
-                  <li><p><i class="fas fa-euro-sign"></i><%= f.price_per_night %>Per night</p></li>
+                  <li><p><i class="fas fa-euro-sign"></i><%= f.price_per_night %>pn</p></li>
                   <li><p><i class="fas fa-users"></i><%= f.max_guest %></p></li>
                 </ul>
-
               </div>
               <div class="card-button">
               <a class='btn btn-primary' href="/flats/<%="#{f.id}"%>/bookings/new?arrival=<%="#{@check_in}"%>&departure=<%="#{@check_out}"%>" role='button'>Book Now!</a>
