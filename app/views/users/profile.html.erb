@@ -1,0 +1,55 @@
+<h1><%= "#{@user.first_name} #{@user.last_name} "%></h1>
+
+
+
+<%if @user == current_user %>
+  <!-- currently done as one list of bookings, which will populate differently depending on whether @user is the host (and can be styled differently) -->
+  <h3>Bookings</h3>
+  <div class="inbox-card" style="display: flex; justify-content:space-between;">
+  <div class="inbox_info-header" style = "font-weight: bold;">Date Made</div>
+  <div class="inbox_info-header" style = "font-weight: bold;"></div>
+  <div class="inbox_info-header" style = "font-weight: bold;">Flat</div>
+  <div class="inbox_info-header" style = "font-weight: bold;">City</div>
+  <div class="inbox_info-header" style = "font-weight: bold;">Dates</div>
+  <div class="inbox_info-header" style = "font-weight: bold;">Status</div>
+  </div>
+
+
+  <p><%@user.bookings.each do |b|%></p>
+  <div class="inbox_card" style="display: flex; justify-content:space-between;">
+
+    <div class="inbox_info"><%= "Booked: #{b.created_at.to_date}" %></div>
+
+    <div class="inbox_info">
+      <% if @user == b.flat.user%>
+        <%="Hosting"%>
+        <% else %>
+        <%= "Guest: #{b.user.first_name} #{b.user.last.name}" %>
+        <%end%>
+    </div>
+
+    <div class="inbox_info"><%= "#{b.flat.name}" %></div>
+    <div class="inbox_info"><%= "#{b.flat.city}" %></div>
+    <div class="inbox_info"><%= "#{b.check_in} - #{b.check_out}" %></div>
+    <div class="inbox_info">
+      <% if @user == b.flat.user%>
+        <% if b.status == false%>
+            <div class="btn btn-primary">
+              <!-- Need to make an event listener for click to change status-> true -->
+              Confirm
+            </div>
+            <% else %>
+            Confirmed
+            <% end %>
+        <% else %>
+        <%= "Status: #{b.status == true ? 'Confirmed': 'Pending Host Confirmation'}" %>
+        <%end%>
+      </div>
+
+  </div>
+  <% end %>
+<%else%>
+  <h2>User Info</h2>
+  <h3><%= "Previous Bookings: #{@user.bookings.count}" %></h3>
+  <h3><%= "Profile Created : #{@user.created_at.to_date}" %></h3>
+<% end %>
