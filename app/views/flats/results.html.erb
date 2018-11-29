@@ -3,27 +3,17 @@
     <div class="row">
       <div class="search-form col-xs-12">
       <form action="/flats/results" method="get">
-        <div class="search-form-content">
-          <div class="search-form-labels">
-           <label for="arrival">City</label>
-           <label for="arrival">Guests</label>
-           <label for="arrival">Check-in</label>
-           <label for="arrival">Check-out</label>
-          </div>
-          <div class="search-form-inputs">
-           <input type="string" name="city" placeholder="City" value=<%="#{@city}"%>>
-           <input type="integer" name="guests" placeholder="Guests" value=<%="#{@max_guest}"%>>
-           <input type="date" class="date" name="arrival" value=<%="#{@check_in}"%>><br>
-           <input type="date" name="departure" value=<%="#{@check_out}"%>>
-          </div>
-        </div>
-        <input type="submit" name="Filter">
+           <label for="arrival">City:</label>
+           <input class="search-input" type="string" name="city" placeholder="City" value=<%="#{@city}"%>>
+           <label for="arrival">Guests:</label>
+           <input class="search-input" type="integer" name="guests" placeholder="Guests" value=<%="#{@max_guest}"%>>
+          <input type="submit" name="Filter" value="Filter" class="btn btn-success">
       </form>
       </div>
       <% @flats.each do |f| %>
       <div class="col-xs-12 col-sm-6">
         <div class="card-content">
-          <%= link_to flat_path(f) do %>
+          <%= link_to new_flat_booking_path(f) do %>
             <div class="bg-img" style="background-image: url('<%= f.photos[0] %>');"></div>
             <div class="content">
               <div class="card-info">
