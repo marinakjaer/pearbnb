@@ -1,7 +1,7 @@
 
-<div class="host-inbox-container">
-  <h3 class="text-center" id="inbox-title">Guests</h3>
-  <div class="host-inbox">
+
+  <h3 class="text-center inbox-title">Your Guests</h3>
+  <div class="inbox">
     <p><%@user.bookings.reverse_order.each do |b|%></p>
     <% if b.flat.user == @user %>
     <div class="inbox-card">
@@ -33,4 +33,4 @@
     <% end %>
     <% end %>
   </div>
-</div>
+
