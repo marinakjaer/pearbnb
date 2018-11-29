@@ -7,7 +7,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/mapbox/basic-v9'
   });
   const markers = JSON.parse(mapElement.dataset.markers);
 
@@ -27,7 +27,14 @@ if (mapElement) { // only build a map if there's a div#map to inject into
     markers.forEach((marker) => {
       bounds.extend([marker.lng, marker.lat]);
     });
-    map.fitBounds(bounds, { duration: 0, padding: 75 })
+    map.fitBounds(bounds, { duration: 2000, padding: 100 })
   }
+  markers.forEach((marker) => {
+    new mapboxgl.Marker()
+      .setLngLat([marker.lng, marker.lat])
+      .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+      .setHTML(marker.infoWindow.content))
+      .addTo(map);
+  })
 }
 
