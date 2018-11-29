@@ -31,7 +31,7 @@ class FlatsController < ApplicationController
   def update
 
     @flat.update(flat_params)
-    @flat.city = @flat.city.capitalize
+    @flat.city = @flat.city
 
     # no need for app/views/restaurants/update.html.erb
     redirect_to new_flat_booking_path(@flat)
@@ -54,7 +54,7 @@ class FlatsController < ApplicationController
       @check_out = params[:query][:check_out]
     end
 
-    @flats = @flats.where(city: @city) unless @city == "" || @city == nil
+    @flats = @flats.where(city: @city.capitalize) unless @city == "" || @city == nil
     @flats = @flats.where("max_guest > #{@max_guest}") unless @max_guest == "" || @max_guest == nil
 
     @markers = @flats.map do |flat|
