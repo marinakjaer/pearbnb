@@ -1,10 +1,19 @@
 
+  <div class="flat-picture" style="background-image: url('<%= cl_image_path @flat.photos.first%>');">
+      <div class="host-buttons">
+        <ul class="list-inline">
+            <% if current_user == @flat.user %>
+          <li><%= link_to "Edit Flat", "/flats/#{params[:id]}/edit", class: "btn btn-primary" %></li>
+            <li><%= link_to "Delete Flat", flat_path(@flat),
+            method: :delete,
+            data: { confirm: "Are you sure?" }, class: "btn btn-primary" %></li>
+            <% end %>
+          </ul>
+        </div>
+    </div>
 
-<div class="page-container">
-  <div class="flat-picture" style="background-image: url('<%= cl_image_path @flat.photos.first%>');"></div>
-
-    <div class="container">
-      <div class="flat">
+  <div class="container">
+    <div class="flat">
       <div class="flat-content">
         <h1><%= @flat.name %></h1>
         <h3><%= @flat.address %></h3>
@@ -13,43 +22,24 @@
           <li><p><i class="fas fa-users"></i> <%= @flat.max_guest %> guests</p></li>
           <li><p><i class="fas fa-euro-sign"></i> <%= @flat.price_per_night %> per night</p></li>
         </ul>
-        <div class="flat-description">
-          </div>
-          <p><%= @flat.description %></p>
+        <p><%= @flat.description %></p>
       </div>
-      <div class="form-style">
-
-
-
-  <div class="price">
-    <strong><p class="flat-price-on-form"><i class="fas fa-euro-sign"></i> <%= @flat.price_per_night %> per night</p></strong>
-    </div>
-  <hr class="styling-hr">
-  <%= simple_form_for [@flat, @booking] do |b|%>
-   <div class="show-form-dates">
-      <div class="show-form-arrival"><%= b.label :check_in %>
-      <%= b.date_field :check_in, value: params[:arrival] %></div>
-      <div class="show-form-arrival"><%= b.label :check_out %>
-      <%= b.date_field :check_out, value:  params[:departure] %></div>
-    </div>
-      <div style> <%= b.button :submit, class: 'btn btn-primary' %> </div>
-      <% end %>
-    </div>
-  </div>
-
-    <br>
-  <%= link_to "Back to search Results", "/flats/results", class: "btn btn-primary search-button"%>
-  <br>
-      <div class="host-buttons">
-        <ul class="list-inline">
-          <li><% if current_user == @flat.user %>
-      <%= link_to "Edit Flat", "/flats/#{params[:id]}/edit", class: "btn btn-primary" %></li>
-          <li><%= link_to "Delete Flat", flat_path(@flat),
-            method: :delete,
-            data: { confirm: "Are you sure?" }, class: "btn btn-primary" %></li>
-         <br>
-        </ul>
+      <div class="form-box" id="form-show-page">
+        <div class="price">
+          <strong><p class="flat-price-on-form"><i class="fas fa-euro-sign"></i> <%= @flat.price_per_night %> per night</p></strong>
+        </div>
+        <hr class="styling-hr">
+        <div class="form-inputs">
+          <%= simple_form_for [@flat, @booking] do |b|%>
+          <%= b.label :check_in %>
+          <%= b.date_field :check_in, value: params[:arrival], class: 'form-input' %>
+          <%= b.label :check_out %>
+          <%= b.date_field :check_out, value:  params[:departure], class: 'form-input'%>
+        </div>
+          <%= b.button :submit, class: 'btn btn-primary button-size' %>
+          <% end %>
       </div>
-  <% end %>
+      </div>
+    </div>
+
   </div>
-</div>

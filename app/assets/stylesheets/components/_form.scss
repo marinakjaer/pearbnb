@@ -1,0 +1,70 @@
+.form-box {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #DCE0E0;
+  border-radius: 3px;
+  border-left: 6px solid $pearcolor;
+  margin-top: 0;
+    label {
+      font-size: 15px;
+    }
+    #flat_photos {
+    display: none;
+    width: 300px;
+    padding-top: 10px;
+}
+}
+
+.form-input {
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: none;
+  font-weight: lighter;
+  text-align: left;
+}
+
+
+
+.form-actions {
+  padding-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.form-control:focus {
+  border: 1px solid $pearcolor;
+  box-shadow: none;
+}
+
+.centering-text {
+  text-align: center;
+}
+
+.button-size {
+  width: 100%;
+  border-radius: 3px;
+  margin: 20px auto;
+}
+
+.label-positioning label {
+  padding-left: 6px;
+    position: relative;
+    top: 2px;
+}
+
+.photo-input {
+  width: 100%;
+  i {
+    font-size: 25px;
+  }
+}
+
+#form-show-page {
+  height: 315px;
+  padding: 40px;
+  position: relative;
+  bottom: 132px;
+}
+

@@ -3,7 +3,7 @@
 }
 
 .flat-content {
-  width: 100%;
+  padding: 40px;
 }
 
 .flat-content h3 {
@@ -15,39 +15,6 @@
   background-position: center;
   background-size: cover;
 }
-
-.form-style {
-  text-align: center;
-  position: relative;
-  bottom: 108px;
-  left: 65px;
-  background-color: white;
-  height: 320px;
-  border-radius: 2px;
-  .price {
-    margin: 20px auto;
-  }
-  .show-form-arrival input {
-    width: 270px;
-    margin: 0px 3px;
-    border-radius: 5px;
-    border-style: none;
-    background-color: #F4F4F4;
-    box-align: center;
-    position: relative;
-  }
-  .show-form-dates {
-    margin: 30px auto;
-  }
-}
-
-
-
-.centered-btn {
-  position: relative;
-  left: 47px;
-}
-
 
 .host-buttons {
   position: absolute;
