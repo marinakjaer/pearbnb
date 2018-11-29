@@ -10,12 +10,12 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user = current_user
     if @flat.save
-      @flat.user.host = true
+      current_user.update(host: true)
       redirect_to new_flat_booking_path(@flat)
     else
-      render:new
+      render :new
     end
-    raise
+
   end
 
   def new
