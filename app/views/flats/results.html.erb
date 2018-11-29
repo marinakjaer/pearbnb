@@ -1,15 +1,25 @@
-<form action="/flats/results" method="get">
-  <input type="string" name="city" placeholder="City?" value=<%="#{@city}"%>>
-  <input type="integer" name="guests" placeholder="#Guests?" value=<%="#{@max_guest}"%>>
-  <label for="arrival">Arrival</label>
-  <input type="date" name="arrival" value=<%="#{@check_in}"%>>
-  <label for="departure">Departure</label>
-  <input type="date" name="departure" value=<%="#{@check_out}"%>>
-  <input type="submit">
-</form>
 <div class="main-container">
   <div class="container">
     <div class="row">
+      <div class="search-form col-xs-12">
+      <form action="/flats/results" method="get">
+        <div class="search-form-content">
+          <div class="search-form-labels">
+           <label for="arrival">City</label>
+           <label for="arrival">Guests</label>
+           <label for="arrival">Check-in</label>
+           <label for="arrival">Check-out</label>
+          </div>
+          <div class="search-form-inputs">
+           <input type="string" name="city" placeholder="City" value=<%="#{@city}"%>>
+           <input type="integer" name="guests" placeholder="Guests" value=<%="#{@max_guest}"%>>
+           <input type="date" class="date" name="arrival" value=<%="#{@check_in}"%>><br>
+           <input type="date" name="departure" value=<%="#{@check_out}"%>>
+          </div>
+        </div>
+        <input type="submit" name="Filter">
+      </form>
+      </div>
       <% @flats.each do |f| %>
       <div class="col-xs-12 col-sm-6">
         <div class="card-content">
@@ -27,7 +37,7 @@
                 </ul>
               </div>
               <div class="card-button">
-              <a class='btn btn-primary' href="/flats/<%="#{f.id}"%>/bookings/new?arrival=<%="#{@check_in}"%>&departure=<%="#{@check_out}"%>" role='button'>Book Now!</a>
+              <a class='btn btn-primary' href="/flats/<%="#{f.id}"%>/bookings/new?arrival=<%="#{@check_in}"%>&departure=<%="#{@check_out}"%>" role='button'>More info</a>
               </div>
             </div>
           <% end %>
@@ -36,13 +46,9 @@
       <% end %>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
       <div
         id="map"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
-    </div>
-  </div>
 </div>
