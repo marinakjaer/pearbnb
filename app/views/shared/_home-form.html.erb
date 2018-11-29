@@ -1,29 +1,27 @@
+<form action="/flats/results" method="get">
 
-  <form action="/flats/results" method="get">
-    <div class="home-form-dates side-by-side-form">
-
-        <div class="home-form-arrival">
-          <label for="arrival">Arrival</label> <br>
-          <input class="date" type="date" name="arrival">
-        </div>
-
-        <div class="home-form-departure">
-          <label for="departure">Departure</label> <br>
-          <input class ="date" type="date" name="departure">
-        </div>
-
-    </div>
-    <div class="side-by-side-form">
-      <div class="home-form-city">
-        <input type="string" name="city" placeholder="What city?">
-      </div>
-      <div class="home-form-quantity">
-        <input type="integer" name="guests" placeholder="How many are you?">
-      </div>
-    </div>
-
-
-    <input class="home-form-button" type="submit">
+  <div class="home-form-city">
+    <label for="Where">My dream destination is :</label> <br>
+    <input type="string" name="city" placeholder="<%= %w[Barcelona Paris London Rome Tokyo].sample %>">
   </div>
+  <div class="home-form-dates side-by-side-form">
+    <div class="home-form-arrival">
+      <label for="arrival">Check-in</label> <br>
+      <input class="date" type="date" name="arrival">
+    </div>
+
+    <div class="home-form-departure">
+      <label for="departure">Check-out</label> <br>
+      <input class ="date" type="date" name="departure">
+    </div>
+  </div>
+  <div class="home-form-quantity">
+    <label for="number-of-guests"> Guests :</label> <br>
+    <input type="integer" name="guests" placeholder="<%= rand(1..5) %>">
+  </div>
+
+
+  <input class="home-form-button" type="submit" value="Let's go!">
+</div>
 </form>
 
