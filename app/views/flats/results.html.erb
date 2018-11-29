@@ -4,9 +4,9 @@
       <div class="search-form col-xs-12">
       <form action="/flats/results" method="get">
            <label for="arrival">City:</label>
-           <input class="search-input" type="string" name="city" placeholder="City" value=<%="#{@city}"%>>
+           <input class="search-input" name="query[city]" type="string" name="city" placeholder="City" value=<%="#{@city}"%>>
            <label for="arrival">Guests:</label>
-           <input class="search-input" type="integer" name="guests" placeholder="Guests" value=<%="#{@max_guest}"%>>
+           <input class="search-input" name="query[guests]" type="integer" name="guests" placeholder="Guests" value=<%="#{@max_guest}"%>>
           <input type="submit" name="Filter" value="Filter" class="btn btn-success">
       </form>
       </div>
