@@ -1,7 +1,6 @@
 .card-content {
  border: 1px solid #d3d3d3;
  border-radius: 10px;
- width: 320px;
  background-color: white;
  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
  margin: 10px
@@ -64,6 +63,9 @@ p.city-name {
   p {
     margin-bottom: 0;
   }
+  i {
+    padding-right: 10px;
+  }
 }
 
 .card-button {
@@ -73,13 +75,3 @@ p.city-name {
 
 }
 
-.main-container {
-  display: flex;
-}
-
-#map {
-  flex: 0 0 400px;
-  height: 100vh;
-  position: sticky !important; /* !important to override Gmaps inline CSS */
-  top: 0 !important;
-}

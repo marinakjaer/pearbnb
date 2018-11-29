@@ -10,10 +10,12 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user = current_user
     if @flat.save
+      current_user.update(host: true)
       redirect_to new_flat_booking_path(@flat)
     else
-      render:new
+      render :new
     end
+
   end
 
   def new
@@ -24,18 +26,15 @@ class FlatsController < ApplicationController
   end
 
   def show
-
-
   end
 
   def update
-    @flat = Flat.new(flat_params)
-    @flat.user = current_user
-    if @flat.save
-      redirect_to flat_path(@flat)
-    else
-      render:edit
-    end
+
+    @flat.update(flat_params)
+    @flat.city = @flat.city.capitalize
+
+    # no need for app/views/restaurants/update.html.erb
+    redirect_to new_flat_booking_path(@flat)
   end
 
   def destroy
@@ -45,12 +44,15 @@ class FlatsController < ApplicationController
   end
 
   def results
-    @flats = Flat.where.not(latitude: nil, longitude: nil)
-    @city = params[:city]
-    @max_guest = params[:guests]
-    # Need to later to the bookings vs this
-    @check_in = params[:arrival]
-    @check_out = params[:departure]
+
+      @flats = Flat.where.not(latitude: nil, longitude: nil)
+    if params[:query]
+      @city = params[:query][:city]
+      @max_guest = params[:query][:guests]
+      # Need to later to the bookings vs this
+      @check_in = params[:query][:check_in]
+      @check_out = params[:query][:check_out]
+    end
 
     @flats = @flats.where(city: @city) unless @city == "" || @city == nil
     @flats = @flats.where("max_guest > #{@max_guest}") unless @max_guest == "" || @max_guest == nil
@@ -58,7 +60,8 @@ class FlatsController < ApplicationController
     @markers = @flats.map do |flat|
       {
         lng: flat.longitude,
-        lat: flat.latitude
+        lat: flat.latitude,
+        infoWindow: { content: render_to_string(partial: "/flats/map_window", locals: { flat: flat }) }
       }
     end
   end

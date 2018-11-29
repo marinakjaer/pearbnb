@@ -1,5 +1,27 @@
 <h1 class="text-center">Edit flat</h1>
 
-<%= render "shared/new-flat-form" %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+
+    <%= simple_form_for [@flat] do |f|%>
+    <%= f.input :name, :label => "Flat name" %>
+    <%= f.input :address %>
+    <%= f.input :city %>
+    <div class="row">
+      <div class="col-xs-6"><%= f.input :max_guest %></div>
+      <div class="col-xs-6"><%= f.input :price_per_night %></div>
+    </div>
+    <%= f.input :description %>
+    <div class="flat-photos">
+      <%= f.file_field :photos, multiple: true %>
+    </div>
+      <%= f.button :submit, class:"new-flat-btn" %>
+    <% end %>
+
+
+    </div>
+  </div>
+</div>
 
 <%= link_to "Go back to search", to: "flats/results?arrival=#{params[:arrival]}&departure=#{params[:departure]}" %>

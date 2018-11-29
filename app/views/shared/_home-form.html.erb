@@ -1,29 +1,20 @@
-
-  <form action="/flats/results" method="get">
-    <div class="home-form-dates side-by-side-form">
-
-        <div class="home-form-arrival">
-          <label for="arrival">Arrival</label> <br>
-          <input class="date" type="date" name="arrival">
-        </div>
-
-        <div class="home-form-departure">
-          <label for="departure">Departure</label> <br>
-          <input class ="date" type="date" name="departure">
-        </div>
-
-    </div>
-    <div class="side-by-side-form">
-      <div class="home-form-city">
-        <input type="string" name="city" placeholder="What city?">
-      </div>
-      <div class="home-form-quantity">
-        <input type="integer" name="guests" placeholder="How many are you?">
-      </div>
-    </div>
-
-
-    <input class="home-form-button" type="submit">
+<%= simple_form_for :query, :url => flats_results_path, method: "get" do |f| %>
+<div class="home-form-city">
+  <%= f.input :city, as: :string, required: true %>
+</div>
+<div class="home-form-dates side-by-side-form">
+  <div class="home-form-arrival">
+    <%= f.input :check_in, as: :string, required: false, input_html: {class: "datepicker"} %>
   </div>
-</form>
+
+  <div class="home-form-departure">
+    <%= f.input :check_out, as: :string, required: false, input_html: {class: "datepicker"} %>
+  </div>
+</div>
+<div class="home-form-quantity">
+  <%= f.input :max_guests, as: :integer, required: true %>
+</div>
+<%= f.button :submit, "Let's go!", class: "btn btn-primary" %>
+<% end %>
+</div>
 

@@ -1,0 +1,36 @@
+
+
+  <h3 class="text-center inbox-title">Your Guests</h3>
+  <div class="inbox">
+    <p><%@user.bookings.reverse_order.each do |b|%></p>
+    <% if b.flat.user == @user %>
+    <div class="inbox-card">
+      <div class="inbox-info">
+        <div class="big">
+          <%= "#{b.user.first_name}"%>
+        </div>
+        <div class="small">
+          <%= "#{b.user.last_name}"%>
+        </div>
+      </div>
+      <div class="inbox-info">
+        <div class="big">
+          <%= "#{b.flat.name}" %>
+        </div>
+        <div class="small"> <%= "#{b.check_in.strftime("%B %d, %Y")} - #{b.check_out.strftime("%B %d, %Y")}" %></div>
+      </div>
+      <% if b.status == false%>
+      <div class="confirmation-box">
+        <div class="btn btn-primary">
+          <!-- Need to make an event listener for click to change status-> true -->
+          Confirm
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <hr width="50%">
+    <% else %>
+    <% end %>
+    <% end %>
+  </div>
+

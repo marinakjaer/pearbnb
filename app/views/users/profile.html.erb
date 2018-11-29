@@ -1,86 +1,71 @@
 <%if @user == current_user %>
-
-<!-- currently done as one list of bookings, which will populate differently depending on whether @user is the host (and can be styled differently) -->
-<div class="parallax" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('https://kitt.lewagon.com/placeholder/cities/barcelona');">
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-3 col-md-4 hide-sm">
-      <div class="user-picture-box"> <%= image_tag "https://source.unsplash.com/user/erondu", alt: "alttext", class:"user-picture" %>
+  <% if @user.host %>
+  <!-- Hosting User Own Profile -->
+  <div class="parallax" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('https://kitt.lewagon.com/placeholder/cities/barcelona');">
+  </div>
+  <div class="container">
+    <div class="row" style="text-align: center;">
+      <div class="col-lg-3 col-md-4 hide-sm">
+        <%= image_tag "https://source.unsplash.com/user/erondu", alt: "alttext", class:"user-picture" %>
+        <h2 class="prof-name"><%= "#{@user.first_name} #{@user.last_name}" %></h2>
       </div>
-      <div class="user-verified-infos">
-        <h2 id="verified-infos">Verified infos</h2>
-        <div class="p-infos">
-          <span class="glyphicon glyphicon-check" aria-hidden="true">    E-mail</span>
-        </div>
-        <div class="p-infos">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true">    Phone-number</span>
-        </div>
+      <div class="col-lg-6 col-md-4 col-sm-12">
+        <h3 class="profile-info"><%= "Previous Bookings: #{@user.bookings.count}"%></h3>
+        <h3 class="profile-info"><%= "Flats Managed: #{@user.flats.count}"%></h3>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-12 button-box">
+          <div class="btn btn-primary">Edit Profile</div>
       </div>
     </div>
-    <div class="col-lg-6 col-md-4 col-sm-12">
-      <div class="profile-info">
-        <h2>My profile</h2>
-        <p><%= "I created my account in : #{@user.created_at.to_date}" %></p>
-        <h3 id="previous-booking"><%= "Previous Bookings: #{@user.bookings.count}" %></h3>
+  </div>
+
+
+  <div style="display:flex;">
+    <!-- Host Inbox -->
+    <div class="inbox-container">
+    <%= render "/shared/host-inbox" %>
+    </div>
+    <!-- Visiting inbox -->
+    <div class="inbox-container">
+    <%= render "/shared/visiting-inbox" %>
+    </div>
+  </div>
+
+  <% else %>
+<!-- NON-Hosting User Own Profile-->
+
+  <div class="parallax" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('https://kitt.lewagon.com/placeholder/cities/barcelona');">
+  </div>
+  <div class="container">
+    <div class="row" style="text-align: center;">
+      <div class="col-md-4 hide-sm">
+        <%= image_tag "https://source.unsplash.com/user/erondu", alt: "alttext", class:"user-picture" %>
+        <h2 class="prof-name"><%= "#{@user.first_name} #{@user.last_name}" %></h2>
+        <div class="btn btn-primary">
+            Edit Profile
+          </div>
+        <h3 class="profile-info"><%= "Previous Bookings: #{@user.bookings.count}"%></h3>
+        <h3 class="profile-info"><%= "Flats Managed: #{@user.flats.count}"%></h3>
       </div>
-      <!-- <span>User address</span> -->
+      <div class="col-md-8 col-sm-10">
+        <%= render "/shared/visiting-inbox" %>
+      </div>
     </div>
-    <!-- <div class="col-lg-3 col-md-4 col-sm-12">
-      <button class="edit-profile-button"><%#= link_to "Edit your profile", "#"  %></button>
-    </div> -->
-  </div>
-</div>
-
-<h3 class="text-center" id="my-bookings">Bookings</h3>
-<div class="inbox-card" >
-  <div class="inbox_info-header" style = "font-weight: bold;">Date made</div>
-  <div class="inbox_info-header" style = "font-weight: bold;">Type of booking</div>
-  <div class="inbox_info-header" style = "font-weight: bold;">Flat</div>
-  <div class="inbox_info-header" style = "font-weight: bold;">City</div>
-  <div class="inbox_info-header" style = "font-weight: bold;">Dates</div>
-  <div class="inbox_info-header" style = "font-weight: bold;">Status</div>
-</div>
-
-
-<p><%@user.bookings.each do |b|%></p>
-<div class="inbox-card">
-
-  <div class="inbox-info"><%= "Booked: #{b.created_at.to_date}" %></div>
-
-  <div class="inbox-info">
-    <% if @user == b.flat.user%>
-    <%="Hosting"%>
-    <% else %>
-    <%= "Guest: #{b.user.first_name} #{b.user.last_name}" %>
-    <%end%>
   </div>
 
-  <div class="inbox-info"><%= "#{b.flat.name}" %></div>
-  <div class="inbox-info"><%= "#{b.flat.city}" %></div>
-  <div class="inbox-info"><%= "#{b.check_in} - #{b.check_out}" %></div>
-  <div class="inbox-info">
-    <% if @user == b.flat.user%>
-    <% if b.status == false%>
-    <div class="btn btn-primary">
-      <!-- Need to make an event listener for click to change status-> true -->
-      Confirm
-    </div>
-    <% else %>
-    Confirmed
-    <% end %>
-    <% else %>
-    <%= "Status: #{b.status == true ? 'Confirmed': 'Pending Host Confirmation'}" %>
-    <%end%>
-  </div>
 
-</div>
-<% end %>
 
-<!-- someone else profile -->
 
+
+
+
+
+
+
+
+  <% end %>
 <%else%>
-
+<!-- someone else profile -->
 <div class="parallax" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('https://kitt.lewagon.com/placeholder/cities/barcelona');">
 </div>
 <div class="container">

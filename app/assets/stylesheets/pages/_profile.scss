@@ -18,71 +18,99 @@
   margin-top: -175px;
 }
 
-.user-verified-infos {
-  margin-top: 100px;
-  h2 {
-    margin-top: 0;
-    margin-left: 10%
-  }
-  .p-infos {
-    margin-bottom: 10px;
-  }
-}
-
-
-
-#verified-infos {
-  font-size: 30px;
+.confirmation-box{
   text-align: center;
+
 }
 
-.profile-info {
-  p {
-    margin-right: 50%;
-    margin-left: 10%;
-    margin-top: 31px;
-  }
-  h2 {
-    margin-left: 10%;
-    font-weight: bold;
-    font-size: 40px;
-    margin-top: 0
-  }
-}
-
-#previous-booking {
-  height: 50%;
-  margin-top: 25px;
+.profile-info{
   font-size: 20px;
-  margin-left: 10%;
+  margin: 10px ;
 
 }
 
-.p-infos {
-  margin-left: 20px;
-}
-
-.edit-profile-button {
-  background-color: $pearcolor;
+.button-box{
   padding: 10px;
-  margin-left: 20%;
-  border-radius: 2px;
-  justify-content: center;
-  a {
-    color: #ffffff;
+}
+
+.prof-name {
+  margin-top: 10px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.inbox-container{
+  width: 50%;
+  padding: 20px;
+}
+.inbox{
+  background-color: white;
+  border-radius: 0px 10px 10px 0px;
+  padding-top: 25px;
+  border-left: solid 10px #B0C23D;
+  margin: 0px;
+}
+
+
+.sm-flat-img{
+ background-size: cover;
+ background-image: url('https://images.unsplash.com/photo-1462630957021-a512744c5234?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d53f0bbf5373e6b8712a388d0b967ab1&auto=format&fit=crop&w=2850&q=80');
+ height:100px;
+ width: 125px;
+ background-position: center;
+ background-color: #ccc;
+ border-radius: 10px;
+ margin: 0px 0px;
+}
+
+.pending{
+  color:grey;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.inbox-title{
+  font-size: 40px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  background-color: #F4F4F4;
+}
+.inbox-info{
+  font-size: 18px;
+
+
+  .big{
+   font-size: 25px;
+  }
+
+  .small{
+    font-size: 14px
   }
 }
 
-#my-bookings {
-  font-size: 40px;
-  margin-bottom: 40px;
+
+.inbox-avatar{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
 
-.inbox_info-header {
+.inbox-info-header {
   text-align: center;
-  border: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 .inbox-card{
   display:grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
+  text-align: center;
+  align-items: center;
+  padding:15px;
 }
+
+.inbox-card-visitor{
+  display:grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  text-align: center;
+  align-items: center;
+  padding:0px;
+ }
