@@ -5,7 +5,19 @@
 
 .mapboxgl-popup-content {
   font-family: 'Open Sans', sans-serif;
+  div{
+    height: 170px;
+    background-size: inherit;
+  }
+  img {
+    border-radius: 5px;
+  }
+  p {
+    font-size: 1.2em;
+    padding-top: 10px;
+  }
 }
+
 
 .main-container {
   display: flex;

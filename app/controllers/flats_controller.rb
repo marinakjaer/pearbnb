@@ -15,7 +15,6 @@ class FlatsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def new
@@ -29,17 +28,12 @@ class FlatsController < ApplicationController
   end
 
   def update
-
     @flat.update(flat_params)
-    @flat.city = @flat.city
-
-    # no need for app/views/restaurants/update.html.erb
     redirect_to new_flat_booking_path(@flat)
   end
 
   def destroy
     @flat.destroy
-
     redirect_to root_path
   end
 
