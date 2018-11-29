@@ -29,10 +29,10 @@
     <div class="dropdown">
       <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-socksup-dropdown-menu">
-        <% if current_user.host.nil? %>
-        <li><%= link_to "Become a Host", new_flat_path %></li>
-        <% else %>
+        <% if current_user.host %>
         <li><%= link_to "Add a Flat", new_flat_path %></li>
+        <% else %>
+        <li><%= link_to "Become a Host", new_flat_path %></li>
         <% end %>
         <li><%= link_to "Profile", profile_path(current_user) %></li>
         <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
