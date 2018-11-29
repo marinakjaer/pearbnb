@@ -1,7 +1,7 @@
 
 
 <div class="page-container">
-  <%= cl_image_tag @flat.photos[0], crop: :fill, class:"flat-picture" %>
+  <div class="flat-picture" style="background-image: url('<%= cl_image_path @flat.photos.first%>');"></div>
     <div class="container">
       <div class="flat">
       <div class="flat-content">
