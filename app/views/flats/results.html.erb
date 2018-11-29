@@ -11,10 +11,10 @@
            <label for="arrival">Check-out</label>
           </div>
           <div class="search-form-inputs">
-           <input type="string" name="city" placeholder="City" value=<%="#{@city}"%>>
-           <input type="integer" name="guests" placeholder="Guests" value=<%="#{@max_guest}"%>>
-           <input type="date" class="date" name="arrival" value=<%="#{@check_in}"%>><br>
-           <input type="date" name="departure" value=<%="#{@check_out}"%>>
+           <input type="string" name="query[city]" placeholder="City" value=<%="#{@city}"%>>
+           <input type="integer" name="query[guests]" placeholder="Guests" value=<%="#{@max_guest}"%>>
+           <input type="date" class="date" name="query[check_in]" value=<%="#{@check_in}"%>><br>
+           <input type="date" name="query[check_out]" value=<%="#{@check_out}"%>>
           </div>
         </div>
         <input type="submit" name="Filter">
