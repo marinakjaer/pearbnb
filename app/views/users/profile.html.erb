@@ -1,10 +1,10 @@
 <%if @user == current_user %>
-
-  <!-- Hosting User -->
+  <% if @user.host %>
+  <!-- Hosting User Own Profile -->
   <div class="parallax" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('https://kitt.lewagon.com/placeholder/cities/barcelona');">
   </div>
   <div class="container">
-    <div class="row">
+    <div class="row" style="text-align: center;">
       <div class="col-lg-3 col-md-4 hide-sm">
         <%= image_tag "https://source.unsplash.com/user/erondu", alt: "alttext", class:"user-picture" %>
         <h2 class="prof-name"><%= "#{@user.first_name} #{@user.last_name}" %></h2>
@@ -22,12 +22,36 @@
 
   <div style="display:flex;">
     <!-- Host Inbox -->
+    <div class="inbox-container">
     <%= render "/shared/host-inbox" %>
-
+    </div>
     <!-- Visiting inbox -->
+    <div class="inbox-container">
     <%= render "/shared/visiting-inbox" %>
+    </div>
   </div>
-<% raise %>
+
+  <% else %>
+<!-- NON-Hosting User Own Profile-->
+
+  <div class="parallax" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('https://kitt.lewagon.com/placeholder/cities/barcelona');">
+  </div>
+  <div class="container">
+    <div class="row" style="text-align: center;">
+      <div class="col-md-4 hide-sm">
+        <%= image_tag "https://source.unsplash.com/user/erondu", alt: "alttext", class:"user-picture" %>
+        <h2 class="prof-name"><%= "#{@user.first_name} #{@user.last_name}" %></h2>
+        <div class="btn btn-primary">
+            Edit Profile
+          </div>
+        <h3 class="profile-info"><%= "Previous Bookings: #{@user.bookings.count}"%></h3>
+        <h3 class="profile-info"><%= "Flats Managed: #{@user.flats.count}"%></h3>
+      </div>
+      <div class="col-md-8 col-sm-10">
+        <%= render "/shared/visiting-inbox" %>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -39,7 +63,7 @@
 
 
 
-
+  <% end %>
 <%else%>
 <!-- someone else profile -->
 <div class="parallax" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('https://kitt.lewagon.com/placeholder/cities/barcelona');">
