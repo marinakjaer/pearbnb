@@ -10,10 +10,12 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user = current_user
     if @flat.save
+      @flat.user.host = true
       redirect_to new_flat_booking_path(@flat)
     else
       render:new
     end
+    raise
   end
 
   def new
@@ -24,18 +26,13 @@ class FlatsController < ApplicationController
   end
 
   def show
-
-
   end
 
   def update
-    @flat = Flat.new(flat_params)
-    @flat.user = current_user
-    if @flat.save
-      redirect_to flat_path(@flat)
-    else
-      render:edit
-    end
+    @flat.update(flat_params)
+
+    # no need for app/views/restaurants/update.html.erb
+    redirect_to new_flat_booking_path(@flat)
   end
 
   def destroy
