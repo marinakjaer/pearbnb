@@ -44,12 +44,15 @@ class FlatsController < ApplicationController
   end
 
   def results
-    @flats = Flat.where.not(latitude: nil, longitude: nil)
-    @city = params[:query][:city]
-    @max_guest = params[:query][:guests]
-    # Need to later to the bookings vs this
-    @check_in = params[:query][:check_in]
-    @check_out = params[:query][:check_out]
+
+      @flats = Flat.where.not(latitude: nil, longitude: nil)
+    if params[:query]
+      @city = params[:query][:city]
+      @max_guest = params[:query][:guests]
+      # Need to later to the bookings vs this
+      @check_in = params[:query][:check_in]
+      @check_out = params[:query][:check_out]
+    end
 
     @flats = @flats.where(city: @city) unless @city == "" || @city == nil
     @flats = @flats.where("max_guest > #{@max_guest}") unless @max_guest == "" || @max_guest == nil
