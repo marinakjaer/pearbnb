@@ -29,6 +29,7 @@ class FlatsController < ApplicationController
   end
 
   def update
+
     @flat.update(flat_params)
 
     # no need for app/views/restaurants/update.html.erb
