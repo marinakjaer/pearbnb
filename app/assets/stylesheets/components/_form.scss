@@ -59,12 +59,16 @@
   i {
     font-size: 25px;
   }
+  i:hover {
+    color: $pearcolor;
+  }
 }
 
 #form-show-page {
   height: 315px;
   padding: 40px;
   position: relative;
+  max-width: 300px;
   bottom: 132px;
 }
 
