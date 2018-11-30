@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'users/:id', to: 'users#profile', as: :profile
-
+  get 'users/:id/flats', to: 'users#flats', as: :host_flats
 
 end
