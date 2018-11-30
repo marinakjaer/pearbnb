@@ -56,7 +56,7 @@
  background-position: center;
  background-color: #ccc;
  border-radius: 10px;
- margin: 0px 0px;
+ margin: 0px auto;
 }
 
 .pending{
@@ -108,5 +108,5 @@
   grid-template-columns: 1fr 2fr 1fr;
   text-align: center;
   align-items: center;
-  padding:0px;
+  padding-left: 15px;
  }
