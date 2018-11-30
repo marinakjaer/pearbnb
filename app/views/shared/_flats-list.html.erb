@@ -1,0 +1,30 @@
+<h3 class="text-center inbox-title">Your flats</h3>
+<div class="inbox">
+  <p><% current_user.flats.reverse_order.each do |f|%></p>
+  <div class="inbox-card-flats">
+    <div style="margin: 0 auto;">
+      <div class="sm-flat-img" style="background-image: url('<%= f.photos[0] %>');">
+      </div>
+      <div class="big">
+        <%= f.name %>
+      </div>
+    </div>
+    <div class="inbox-info">
+      <div class="big">
+        <%= f.city.capitalize %>
+      </div>
+      <div>
+        <p> Flat added in: <br> <%= f.created_at.strftime("%Y-%m-%d") %> </p>
+      </div>
+    </div>
+    <div class="inbox-info">
+      <p><i class="fas fa-euro-sign"></i><%= f.price_per_night %>/ night </p>
+      <p><i class="fas fa-users"></i><%= f.max_guest %></p>
+      <button class="btn-primary"><%= link_to "Edit flat infos" %></button>
+    </div>
+  </div>
+
+  <hr width="50%">
+  <% end %>
+</div>
+</div>
