@@ -7,7 +7,7 @@
   padding: 0px 30px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 /* Logo */
@@ -27,6 +27,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  p {
+    margin-bottom: 0;
+  }
 }
 
 /* Basic navbar item */
