@@ -1,4 +1,4 @@
-const input = document.getElementById('flat_photos');
+const input = document.getElementById('flat_url');
 
 if(input) {
   const fileCount = document.getElementById('file-count')

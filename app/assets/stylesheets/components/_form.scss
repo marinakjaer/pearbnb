@@ -8,15 +8,16 @@
     label {
       font-size: 15px;
     }
-    #flat_photos {
+    #flat_url {
     display: none;
     width: 300px;
     padding-top: 10px;
-}
+  }
+  margin-bottom: 5px;
 }
 
 .form-input {
-  background-color: white;
+  background- : white;
   border: 1px solid lightgray;
   border-radius: 5px;
   box-shadow: none;
@@ -70,5 +71,9 @@
   position: relative;
   max-width: 300px;
   bottom: 132px;
+}
+
+.form-signup{
+  height: 100vh;
 }
 
