@@ -1,11 +1,11 @@
 class Flat < ApplicationRecord
   belongs_to :user
   has_many :bookings
-  mount_uploaders :photos, PhotoUploader
+  has_many :photos, dependent: :destroy
+  accepts_nested_attributes_for :photos
 
   validates :address, presence: true
   validates :city, presence: true
-  validates :photos, presence: true
   validates :description, presence: true
   validates :price_per_night, presence: true
   validates :name, presence: true

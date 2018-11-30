@@ -1,5 +1,5 @@
 
-<div class="flat-picture" style="background-image: url('<%= cl_image_path @flat.photos.first%>');">
+<div class="flat-picture" style="background-image: url('<%= cl_image_path @flat.photos.last.url %>');">
   <div class="host-buttons">
     <ul class="list-inline">
       <% if current_user == @flat.user %>
@@ -32,9 +32,9 @@
       <div class="form-inputs">
         <%= simple_form_for [@flat, @booking] do |b|%>
         <%= b.label :check_in %>
-        <%= b.date_field :check_in, value: params[:arrival], class: 'form-input' %>
+        <%= b.date_field :check_in, value: params[:arrival], class: 'form-input datepicker' %>
         <%= b.label :check_out %>
-        <%= b.date_field :check_out, value:  params[:departure], class: 'form-input'%>
+        <%= b.date_field :check_out, value:  params[:departure], class: 'form-input datepicker'%>
       </div>
       <%= b.button :submit, class: 'btn btn-primary button-size' %>
       <% end %>
