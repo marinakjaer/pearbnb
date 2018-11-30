@@ -20,6 +20,12 @@ class BookingsController < ApplicationController
   def destroy
   end
 
+  def confirm
+    @booking = Booking.find(params[:id])
+    @booking.update(status: true)
+    raise
+  end
+
   private
   def set_flat
     @flat = Flat.find(params[:flat_id])
@@ -28,4 +34,6 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:check_in, :user, :flat, :check_out)
   end
+
+
 end
