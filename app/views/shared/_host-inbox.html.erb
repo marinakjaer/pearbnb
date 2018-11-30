@@ -20,7 +20,12 @@
       </div>
       <% if b.status == false%>
       <div class="confirmation-box">
-          <%=link_to "Confirm", confirm_path(b), method: :patch , class: "btn btn-primary" %>
+
+
+          <%=link_to "Confirm", confirm_path(b), method: :patch , class: "btn btn-primary", id: "#{b.id}", remote: :true %>
+
+
+
       </div>
       <% else %>
       <div class="confirmed">
