@@ -2,7 +2,7 @@
 
   <h3 class="text-center inbox-title">Your Guests</h3>
   <div class="inbox">
-    <p><%@user.bookings.reverse_order.each do |b|%></p>
+    <p><%@hosted_bookings.sort_by{|b| b[:created_at]}.reverse.each do |b|%></p>
     <% if b.flat.user == @user %>
     <div class="inbox-card">
       <div class="inbox-info">
@@ -11,6 +11,9 @@
         </div>
         <div class="small">
           <%= "#{b.user.last_name}"%>
+        </div>
+        <div class="small">
+          <%= "#{b.created_at}"%>
         </div>
       </div>
       <div class="inbox-info">
@@ -33,4 +36,5 @@
     <% end %>
     <% end %>
   </div>
+
 
