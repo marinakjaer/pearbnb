@@ -16,6 +16,9 @@
   background-position: center;
   background-size: cover;
 }
+.opaque-map{
+  opacity: 1;
+}
 
 .host-buttons {
   position: absolute;
@@ -32,4 +35,9 @@
 
 .go-to-booking {
   height: 40px;
+}
+
+.wrapper{
+  background-color: #32b79629;
+  padding: 50px;
 }

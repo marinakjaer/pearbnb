@@ -42,11 +42,14 @@
   </div>
 </div>
 </div>
-      <div class="horizontal">
-        <div
-        id="map"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-        ></div>
+<div class="wrapper">
+  <div class="opaque-map">
+    <div class="horizontal">
+      <div
+      id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
     </div>
-
+  </div>
+</div>
