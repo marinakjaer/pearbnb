@@ -11,6 +11,11 @@ class FlatsController < ApplicationController
     @flat.user = current_user
     if @flat.save
       current_user.update(host: true)
+      if params[:flat][:url]
+        params[:flat][:url].each do |i|
+          @flat.photos.create(url: i)
+        end
+      end
       redirect_to new_flat_booking_path(@flat)
     else
       render :new
@@ -29,6 +34,11 @@ class FlatsController < ApplicationController
 
   def update
     @flat.update(flat_params)
+    if params[:flat][:url]
+        params[:flat][:url].each do |i|
+          @flat.photos.create(url: i)
+        end
+    end
     redirect_to new_flat_booking_path(@flat)
   end
 
@@ -38,7 +48,6 @@ class FlatsController < ApplicationController
   end
 
   def results
-
       @flats = Flat.where.not(latitude: nil, longitude: nil)
     if params[:query]
       @city = params[:query][:city]
@@ -67,6 +76,6 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:description, :name, :address, :max_guest, :price_per_night, :city, photos: [])
+    params.require(:flat).permit(:description, :name, :address, :max_guest, :price_per_night, :city, photos_attributes: [:id, :flat_id, :url])
   end
 end
