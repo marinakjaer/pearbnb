@@ -23,7 +23,10 @@ class BookingsController < ApplicationController
   def confirm
     @booking = Booking.find(params[:id])
     @booking.update(status: true)
-    raise
+    respond_to do |format|
+       # format.html {redirect_to profile_path(@booking.flat.user)}
+      format.js
+    end
   end
 
   private
