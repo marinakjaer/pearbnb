@@ -7,7 +7,7 @@
            <input class="search-input" name="query[city]" type="string" name="city" placeholder="City" value=<%="#{@city}"%>>
            <label for="arrival">Guests:</label>
            <input class="search-input" name="query[guests]" type="integer" name="guests" placeholder="Guests" value=<%="#{@max_guest}"%>>
-          <input type="submit" name="Filter" value="Filter" class="btn btn-success">
+          <input id="filter-button" type="submit" name="Filter" value="Filter" class="btn btn-primary">
       </form>
       </div>
       <% @flats.each do |f| %>

@@ -1,7 +1,7 @@
 <%if @user == current_user %>
   <% if @user.host %>
   <!-- Hosting User Own Profile -->
-  <div class="parallax" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('https://kitt.lewagon.com/placeholder/cities/barcelona');">
+  <div class="parallax" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('https://kitt.lewagon.com/placeholder/cities/<%= %w(barcelone paris tokyo bali shanghai mexico london).sample %>');">
   </div>
   <div class="container">
     <div class="row" style="text-align: center;">
@@ -14,7 +14,7 @@
         <h3 class="profile-info"><%= "Flats Managed: #{@user.flats.count}"%></h3>
       </div>
       <div class="col-lg-3 col-md-4 col-sm-12 button-box">
-          <div class="btn btn-primary"><%= link_to "See my flats", host_flats_path %></div>
+          <div><%= link_to "See my flats", host_flats_path, class: "btn btn-primary" %></div>
       </div>
     </div>
   </div>
