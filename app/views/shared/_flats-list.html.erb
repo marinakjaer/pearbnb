@@ -3,7 +3,7 @@
   <p><% current_user.flats.reverse_order.each do |f|%></p>
   <div class="inbox-card-flats">
     <div style="margin: 0 auto;">
-      <div class="sm-flat-img" style="background-image: url('<%= f.photos[0] %>');">
+      <div class="sm-flat-img" style="background-image: url('<%= f.photos.last.url %>');">
       </div>
       <div class="big">
         <%= f.name %>
@@ -20,7 +20,7 @@
     <div class="inbox-info">
       <p><i class="fas fa-euro-sign"></i><%= f.price_per_night %>/ night </p>
       <p><i class="fas fa-users"></i><%= f.max_guest %></p>
-      <button class="btn btn-primary"><%= link_to "Edit flat" %></button>
+      <button class="btn btn-primary"><%= link_to "Edit flat", edit_flat_path(f) %></button>
     </div>
   </div>
 

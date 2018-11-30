@@ -4,7 +4,7 @@
     <p><%@user.bookings.reverse_order.each do |b|%></p>
     <div class="inbox-card-visitor">
       <div style="margin: 0 auto;">
-        <div class="sm-flat-img" style="background-image: url('<%= b.flat.photos[0] %>');">
+        <div class="sm-flat-img" style="background-image: url('<%= b.flat.photos.last.url %>');">
         </div>
         <div class="big">
           <%= "#{b.flat.name}"%>
