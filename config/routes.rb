@@ -5,11 +5,14 @@ Rails.application.routes.draw do
   get 'flats/results', to: 'flats#results'
   resources :flats, except: [:index] do
     resources :bookings, except: [:index, :show, :update, :edit]
+
   end
   # resources :users, except: [:index]
 
   devise_for :users
   get 'users/:id', to: 'users#profile', as: :profile
   get 'users/:id/flats', to: 'users#flats', as: :host_flats
+  patch 'bookings/:id/confirm', to: 'bookings#confirm', as: :confirm
+
 
 end
