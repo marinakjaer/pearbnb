@@ -2,20 +2,22 @@
 </div>
 <div class="container">
   <div class="row" style="text-align: center;">
-    <div class="col-lg-3 col-md-4 hide-sm">
+    <div class="col-md-4 hide-sm">
       <%= image_tag "https://source.unsplash.com/user/erondu", alt: "alttext", class:"user-picture" %>
       <h2 class="prof-name"><%= "#{current_user.first_name} #{current_user.last_name}" %></h2>
-    </div>
-    <div class="col-lg-6 col-md-4 col-sm-12">
       <h3 class="profile-info"><%= "Previous Bookings: #{current_user.bookings.count}"%></h3>
       <h3 class="profile-info"><%= "Flats Managed: #{current_user.flats.count}"%></h3>
+      <div class="btn btn-primary"><%= link_to "View my bookings", profile_path(current_user) %>
+      </div>
     </div>
-  </div>
-</div>
-<div style="display:flex;">
-  <!-- Host Inbox -->
-  <div class="inbox-container">
-    <%= render "/shared/flats_list" %>
+    <div class="col-md-8 col-sm-10">
+      <div style="display:flex; justify-content: center">
+        <!-- Host Inbox -->
+        <div class="flats-list-container">
+          <%= render "/shared/flats-list" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

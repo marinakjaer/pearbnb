@@ -25,6 +25,15 @@
 
 }
 
+.btn-primary {
+  border-radius: 3px;
+  a {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+}
+
 .button-box{
   padding: 10px;
 }
@@ -39,6 +48,14 @@
   width: 50%;
   padding: 20px;
 }
+
+.flats-list-container {
+  width: 100%;
+  padding: 20px;
+  vertical-align: top;
+
+}
+
 .inbox{
   background-color: white;
   border-radius: 0px 10px 10px 0px;
@@ -77,6 +94,7 @@
 
   .big{
    font-size: 25px;
+   margin-bottom: 5%;
   }
 
   .small{
@@ -104,6 +122,14 @@
 }
 
 .inbox-card-visitor{
+  display:grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  text-align: center;
+  align-items: center;
+  padding-left: 15px;
+ }
+
+ .inbox-card-flats{
   display:grid;
   grid-template-columns: 1fr 2fr 1fr;
   text-align: center;
