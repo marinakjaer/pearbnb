@@ -2,8 +2,7 @@
 
   <h3 class="text-center inbox-title">Your Guests</h3>
   <div class="inbox">
-    <p><%@user.bookings.reverse_order.each do |b|%></p>
-    <% if b.flat.user == @user %>
+    <p><%@hosted_bookings.sort_by{|b| b[:created_at]}.reverse.each do |b|%></p>
     <div class="inbox-card">
       <div class="inbox-info">
         <div class="big">
@@ -21,16 +20,22 @@
       </div>
       <% if b.status == false%>
       <div class="confirmation-box">
-        <div class="btn btn-primary">
-          <!-- Need to make an event listener for click to change status-> true -->
-          Confirm
-        </div>
+
+
+          <%=link_to "Confirm", confirm_path(b), method: :patch , class: "btn btn-primary", id: "#{b.id}", remote: :true %>
+
+
+
+      </div>
+      <% else %>
+      <div class="confirmed">
+        Confirmed
       </div>
       <% end %>
     </div>
+    <% end %>
     <hr width="50%">
-    <% else %>
-    <% end %>
-    <% end %>
   </div>
+
+
 
