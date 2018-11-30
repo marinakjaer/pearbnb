@@ -1,5 +1,5 @@
 
-<div class="flat-picture" style="background-image: url('<%= cl_image_path @flat.photos.first%>');">
+<div class="flat-picture" style="background-image: url('<%= cl_image_path @flat.photos.last.url %>');">
   <div class="host-buttons">
     <ul class="list-inline">
       <% if current_user == @flat.user %>
