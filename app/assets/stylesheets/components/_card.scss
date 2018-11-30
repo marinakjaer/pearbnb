@@ -1,9 +1,10 @@
 .card-content {
  border: 1px solid #d3d3d3;
- border-radius: 10px;
+ border-radius: 2px;
  background-color: white;
- box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+ box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
  margin: 10px
+
 }
 .bg-img {
  background-size: cover;
@@ -11,6 +12,7 @@
  min-height: 200px;
  background-position: center;
  background-color: #ccc;
+ border-radius-top: 10px;
 }
 
 .city-name {
