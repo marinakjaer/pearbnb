@@ -1,0 +1,21 @@
+<div class="parallax" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('https://kitt.lewagon.com/placeholder/cities/barcelona');">
+</div>
+<div class="container">
+  <div class="row" style="text-align: center;">
+    <div class="col-lg-3 col-md-4 hide-sm">
+      <%= image_tag "https://source.unsplash.com/user/erondu", alt: "alttext", class:"user-picture" %>
+      <h2 class="prof-name"><%= "#{current_user.first_name} #{current_user.last_name}" %></h2>
+    </div>
+    <div class="col-lg-6 col-md-4 col-sm-12">
+      <h3 class="profile-info"><%= "Previous Bookings: #{current_user.bookings.count}"%></h3>
+      <h3 class="profile-info"><%= "Flats Managed: #{current_user.flats.count}"%></h3>
+    </div>
+  </div>
+</div>
+<div style="display:flex;">
+  <!-- Host Inbox -->
+  <div class="inbox-container">
+    <%= render "/shared/flats_list" %>
+  </div>
+</div>
+
